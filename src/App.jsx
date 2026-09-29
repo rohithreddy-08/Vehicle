@@ -11,8 +11,8 @@ import {
 const VEHICLES = {
   ROHIT123: {
     ownerName: "Rohit Reddy",
-    vehicleNumber: "TG09AB1234",
-    phone: "919999999999",
+    vehicleNumber: "TG35AB2953",
+    phone: "9705560414",
 
     whatsappMessage:
       "Hi Rohit, I am contacting you regarding your car parking.",
@@ -22,7 +22,7 @@ const VEHICLES = {
 const getVehicleId = () => {
   const params = new URLSearchParams(window.location.search);
 
-  return (params.get("vehicle") || "ROHIT123").toUpperCase();
+  return (params.get("vehicle") || "ROHIT2953").toUpperCase();
 };
 
 function App() {
