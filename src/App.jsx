@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const VEHICLES = {
-  ROHIT123: {
+  ROHIT2953: {
     ownerName: "Rohit Reddy",
     vehicleNumber: "TG35AB2953",
     phone: "919705560414",
