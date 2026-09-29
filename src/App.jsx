@@ -1,32 +1,29 @@
 import React from "react";
-import { CarFront, Phone, MessageCircle, ShieldCheck, AlertCircle } from "lucide-react";
+import {
+  CarFront,
+  Phone,
+  MessageCircle,
+  ShieldCheck,
+  AlertCircle,
+  Sparkles,
+} from "lucide-react";
 
-// Phase 1: static data.
-// Later this object can be replaced with a backend API call.
 const VEHICLES = {
   ROHIT123: {
     ownerName: "Rohit Reddy",
     vehicleNumber: "TG09AB1234",
-    phone: "919999999999", // Replace with the real WhatsApp/call number.
-    whatsappMessage:
-      "Hi Rohit, I am contacting you regarding your car parking. There seems to be an issue with your vehicle."
-  },
+    phone: "919999999999",
 
-  MOUNIKA123: {
-    ownerName: "Mounika Reddy",
-    vehicleNumber: "TG09CD5678",
-    phone: "919888888888",
     whatsappMessage:
-      "Hi Mounika, I am contacting you regarding your car parking."
-  }
+      "Hi Rohit, I am contacting you regarding your car parking.",
+  },
 };
 
-const DEFAULT_VEHICLE_ID = "ROHIT123";
-
-function getVehicleId() {
+const getVehicleId = () => {
   const params = new URLSearchParams(window.location.search);
-  return (params.get("vehicle") || DEFAULT_VEHICLE_ID).toUpperCase();
-}
+
+  return (params.get("vehicle") || "ROHIT123").toUpperCase();
+};
 
 function App() {
   const vehicleId = getVehicleId();
@@ -44,75 +41,138 @@ function App() {
 
   return (
     <main className="page">
-      <section className="card">
-        <div className="topPattern" />
+      {/* Animated background */}
+      <div className="background">
+        <div className="gradientOrb orbOne" />
+        <div className="gradientOrb orbTwo" />
+        <div className="gradientOrb orbThree" />
+
+        <span className="particle particle1">✦</span>
+        <span className="particle particle2">✧</span>
+        <span className="particle particle3">•</span>
+        <span className="particle particle4">✦</span>
+        <span className="particle particle5">•</span>
+      </div>
+
+      <section className="vehicleCard">
+        <div className="cardGlow" />
 
         <div className="content">
-          <div className="carIcon">
-            <CarFront size={34} strokeWidth={2.2} />
+          {/* Top icon section */}
+          <div className="hero">
+            <div className="carGlow glowOne" />
+            <div className="carGlow glowTwo" />
+
+            <div className="carIcon">
+              <CarFront size={46} strokeWidth={1.8} />
+            </div>
           </div>
 
-          <div className="helloBadge">Hey!!! 👋</div>
+          {/* Greeting */}
+          <div className="helloBadge">
+            <Sparkles size={13} />
+            <span>Hey!!! 👋</span>
+          </div>
 
+          {/* Owner */}
           <h1>
-            My self <span>{vehicle.ownerName}</span>
+            Myself
+            <span>{vehicle.ownerName}</span>
           </h1>
 
-          <p className="intro">
-            Is there any issue with my car parking?
-            <br />
-            Please contact me.
-          </p>
+          {/* Message */}
+          <div className="message">
+            <p className="mainMessage">
+              Is there any issue with
+              <br />
+              <strong>my car parking?</strong>
+            </p>
 
-          <div className="vehicleBox">
-            <span className="vehicleLabel">VEHICLE NUMBER</span>
-            <strong>{vehicle.vehicleNumber}</strong>
+            <p className="subMessage">
+              Please feel free to contact me.
+              <br />
+              I’ll be happy to help you.
+            </p>
           </div>
 
-          <div className="divider" />
+          {/* Number plate */}
+          <div className="numberPlateWrapper">
+            <div className="plateLight" />
 
-          <p className="contactTitle">How would you like to contact me?</p>
+            <div className="numberPlate">
+              <div className="indiaMark">
+                <span>IND</span>
+              </div>
 
-          <div className="actions">
-            <a className="actionButton callButton" href={callUrl}>
-              <span className="actionIcon">
-                <Phone size={21} />
-              </span>
+              <div>
+                <small>VEHICLE NUMBER</small>
 
-              <span className="actionText">
-                <strong>Call Me</strong>
-                <small>Contact the owner directly</small>
-              </span>
-            </a>
-
-            <a
-              className="actionButton whatsappButton"
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span className="actionIcon">
-                <MessageCircle size={21} />
-              </span>
-
-              <span className="actionText">
-                <strong>WhatsApp Me</strong>
-                <small>Send me a quick message</small>
-              </span>
-            </a>
+                <strong>{vehicle.vehicleNumber}</strong>
+              </div>
+            </div>
           </div>
 
-          <div className="privacyNote">
-            <ShieldCheck size={17} />
-            <span>
-              Please contact only when necessary regarding parking or vehicle
-              related issues.
-            </span>
+          {/* Contact section */}
+          <div className="contactSection">
+            <div className="sectionHeading">
+              <span />
+              <p>Contact me</p>
+              <span />
+            </div>
+
+            <div className="actions">
+              {/* Call */}
+              <a href={callUrl} className="action callAction">
+                <div className="actionIcon">
+                  <Phone size={23} />
+                </div>
+
+                <div className="actionInfo">
+                  <strong>Call Me</strong>
+                  <span>Talk directly with me</span>
+                </div>
+
+                <div className="arrow">→</div>
+              </a>
+
+              {/* WhatsApp */}
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action whatsappAction"
+              >
+                <div className="actionIcon">
+                  <MessageCircle size={23} />
+                </div>
+
+                <div className="actionInfo">
+                  <strong>WhatsApp Me</strong>
+                  <span>Send me a quick message</span>
+                </div>
+
+                <div className="arrow">→</div>
+              </a>
+            </div>
           </div>
 
-          <p className="qrId">
-            QR ID: <strong>{vehicleId}</strong>
-          </p>
+          {/* Privacy */}
+          <div className="privacy">
+            <div className="privacyIcon">
+              <ShieldCheck size={16} />
+            </div>
+
+            <p>
+              Please contact me only regarding parking
+              or vehicle-related issues.
+            </p>
+          </div>
+
+          {/* QR */}
+          <div className="qrFooter">
+            <span>QR ID</span>
+            <strong>{vehicleId}</strong>
+          </div>
         </div>
       </section>
     </main>
@@ -122,27 +182,30 @@ function App() {
 function NotFound({ vehicleId }) {
   return (
     <main className="page">
-      <section className="card errorCard">
+      <div className="background">
+        <div className="gradientOrb orbOne" />
+        <div className="gradientOrb orbTwo" />
+      </div>
+
+      <section className="vehicleCard errorCard">
         <div className="content">
           <div className="errorIcon">
-            <AlertCircle size={38} />
+            <AlertCircle size={45} />
           </div>
 
-          <h1>QR Code Not Found</h1>
+          <h1>
+            QR Code
+            <span>Not Found</span>
+          </h1>
 
-          <p className="intro">
-            This QR code is invalid or the vehicle information is not
-            available.
+          <p className="subMessage">
+            This QR code is invalid or the vehicle
+            information is unavailable.
           </p>
 
-          <div className="vehicleBox">
-            <span className="vehicleLabel">QR ID</span>
-            <strong>{vehicleId}</strong>
+          <div className="errorId">
+            QR ID: <strong>{vehicleId}</strong>
           </div>
-
-          <p className="errorHelp">
-            Please scan a valid vehicle QR code again.
-          </p>
         </div>
       </section>
     </main>
