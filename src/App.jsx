@@ -12,7 +12,7 @@ const VEHICLES = {
   ROHIT123: {
     ownerName: "Rohit Reddy",
     vehicleNumber: "TG35AB2953",
-    phone: "9705560414",
+    phone: "919705560414",
 
     whatsappMessage:
       "Hi Rohit, I am contacting you regarding your car parking.",
