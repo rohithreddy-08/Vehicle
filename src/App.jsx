@@ -20,8 +20,8 @@ import "./App.css";
 
 const VEHICLES = {
   ROHIT9010: {
-    ownerName: "ROHITH REDDY",
-    phone: "919999999999",
+    ownerName: "ROHIT REDDY",
+    phone: "919705560414",
 
     familyContacts: [
       {
