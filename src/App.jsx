@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 const VEHICLES = {
-  ROHIT2953: {
+  ROHIT9010: {
     ownerName: "Rohit Reddy",
     vehicleNumber: "TG35AB2953",
     phone: "919705560414",
@@ -22,7 +22,7 @@ const VEHICLES = {
 const getVehicleId = () => {
   const params = new URLSearchParams(window.location.search);
 
-  return (params.get("vehicle") || "ROHIT2953").toUpperCase();
+  return (params.get("vehicle") || "ROHIT9010").toUpperCase();
 };
 
 function App() {
